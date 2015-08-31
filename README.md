@@ -2,10 +2,10 @@
 
 Requirements:
 
-Python 3.4
-Tweepy: https://github.com/tweepy/tweepy
-pymongo: https://github.com/mongodb/mongo-python-driver/
-Mongodb
+Python 3.4  
+Tweepy: https://github.com/tweepy/tweepy  
+pymongo: https://github.com/mongodb/mongo-python-driver/  
+Mongodb  
 
 You also have to fill out twittercredentials.py with your own credentials.
 
