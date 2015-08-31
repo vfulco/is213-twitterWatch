@@ -14,11 +14,13 @@ class StdOutListener(StreamListener):
     def on_data(self, data):
         parsed_data = json.loads(data)
         tweet = { "created_at": parsed_data['created_at'],
-                  "text": parsed_data['text']
+                  "text": parsed_data['text'],
+                  "lang": parsed_data['lang']
                   }
         tweet_id = db.tweets.insert_one(tweet).inserted_id
         tweet_id
-        print(parsed_data['text'])
+
+        print(parsed_data)
         return True
 
     def on_error(self, status):
@@ -27,9 +29,11 @@ class StdOutListener(StreamListener):
 
 if __name__ == '__main__':
 
-    l = StdOutListener()
+    listener = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
-    stream = Stream(auth, l)
+    stream = Stream(auth, listener)
+    keywords = ['python', 'mongodb']
+    language = ['no', 'en']
 
-    stream.filter(track=['python', 'javascript', 'ruby'], languages=['no', 'en'])
+    stream.filter(track=keywords, languages=language)
