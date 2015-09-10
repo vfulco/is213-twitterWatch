@@ -8,9 +8,9 @@ Mongodb
 
 You also have to fill out twittercredentials.py with your own credentials.
 
-To install dependencies run: pip install -r requirements.txt
+To install dependencies run: `pip install -r requirements.txt`
 
-To run the application, just run: python main.py
+To run the application, just run: `python main.py`
 
 To change keywords you are looking for, just change the keywords array in main.py,
 same goes for wanted language.
