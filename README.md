@@ -2,12 +2,13 @@
 
 <h4>Requirements: </h4>
 
-Python 3.4  
-Tweepy: https://github.com/tweepy/tweepy  
-pymongo: https://github.com/mongodb/mongo-python-driver/  
+Python 3.4
+python-pip  
 Mongodb  
 
 You also have to fill out twittercredentials.py with your own credentials.
+
+To install dependencies run: pip install -r requirements.txt
 
 To run the application, just run: python main.py
 
