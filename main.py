@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
@@ -8,6 +10,7 @@ from twittercredentials import access_token, access_token_secret, consumer_key, 
 #Tells which DB to use, or creates it if it does not exist.
 client = MongoClient()
 db = client['twitter-watch']
+seconddb = client['trendalyser']
 
 class StdOutListener(StreamListener):
 
@@ -26,14 +29,20 @@ class StdOutListener(StreamListener):
     def on_error(self, status):
         print (status)
 
-
+def createkeywordslist():
+    keywords = []
+    keywordsdb = seconddb.keyword
+    for keyword in keywordsdb.find():
+        keywords.append(keyword['keyword'])
+    return keywords
+    
 if __name__ == '__main__':
 
     listener = StdOutListener()
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, listener)
-    keywords = ['python', 'mongodb']
+    keywords = createkeywordslist()
     language = ['no', 'en']
 
     stream.filter(track=keywords, languages=language)
