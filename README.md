@@ -12,8 +12,7 @@ To install dependencies run: `pip install -r requirements.txt`
 
 To run the application, just run: `python main.py`
 
-To change keywords you are looking for, just change the keywords array in main.py,
-same goes for wanted language.
+Keywords to look for are collected from a mongodb database.
 
 <h4> Troubleshooting: </h4>
 There is a bug in Tweepy that on 31.08.15 has not been fixed. If you get: TypeError: Can't convert 'bytes' object to str implicitly  
