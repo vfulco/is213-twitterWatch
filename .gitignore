@@ -60,3 +60,5 @@ target/
 # PyCharm
 .idea/workspace.xml
 .idea/tasks.xml
+
+twittercredentials.py
